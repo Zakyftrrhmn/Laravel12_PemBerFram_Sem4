@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('sends', function (Blueprint $table) {
             $table->id();
+            $table->string('no_agenda');
+            $table->string('jenis_surat');
+            $table->date('tanggal_kirim');
+            $table->string('no_surat');
+            $table->string('pengirim')->nullable();
+            $table->string('perihal')->nullable();
             $table->timestamps();
         });
     }

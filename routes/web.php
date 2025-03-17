@@ -15,6 +15,14 @@ Route::put('/inbox/update/{id}', [InboxController::class, 'update'])->name('inbo
 route::delete('/inbox/delete/{id}', [InboxController::class, 'destroy'])->name('inbox.destroy');
 Route::get('/inbox/show{id}', [InboxController::class, 'show'])->name('inbox.show');
 
+Route::get('/send', [SendController::class, 'index'])->name('send.index');
+Route::get('/send/create', [SendController::class, 'create'])->name('send.create');
+Route::post('/send/store', [SendController::class, 'store'])->name('send.store');
+Route::get('/send/edit/{id}', [SendController::class, 'edit'])->name('send.edit');
+Route::put('/send/update/{id}', [SendController::class, 'update'])->name('send.update');
+route::delete('/send/delete/{id}', [SendController::class, 'destroy'])->name('send.destroy');
+Route::get('/send/show{id}', [SendController::class, 'show'])->name('send.show');
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
