@@ -65,7 +65,7 @@ class InboxController extends Controller
             'jenis_surat'   => $request->jenis_surat,
             'tanggal_kirim' => $request->tanggal_kirim,
             'tanggal_terima' => $request->tanggal_terima,
-            'no_surat'   => $request->nomor_surat,
+            'no_surat'   => $request->no_surat,
             'pengirim'      => $request->pengirim,
             'perihal'       => $request->perihal,
             'foto'          => $fileName,
