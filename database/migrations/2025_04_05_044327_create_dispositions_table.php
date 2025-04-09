@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('dispositions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('inbox_id')->nullable()->index('fk_disposition_to_inboxes');
+            $table->string('no_disposisi')->nullable();
+            $table->string('kepada')->nullable();
+            $table->string('keterangan')->nullable();
+            $table->string('status_surat')->nullable();
+            $table->string('tanggapan')->nullable();
             $table->timestamps();
         });
     }

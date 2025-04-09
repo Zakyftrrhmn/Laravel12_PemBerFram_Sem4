@@ -19,4 +19,9 @@ class Inbox extends Model
         'perihal',
         'foto'
     ];
+
+    public function disposition()
+    {
+        return $this->hasOne("App\Models\Disposition", 'inbox_id');
+    }
 }

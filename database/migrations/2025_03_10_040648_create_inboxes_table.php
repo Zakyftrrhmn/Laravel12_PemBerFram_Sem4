@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('pengirim')->nullable();
             $table->string('perihal')->nullable();
             $table->string('foto')->nullable();
+            $table->string('relasi')->default('0');
             $table->timestamps();
         });
     }

@@ -6,8 +6,8 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Tambah Surat Masuk</h1>
         <ol class="breadcrumb mb-4">
-            <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active"><a href="" class="text-primary text-decoration-none">Dashboard</a> / Tambah Data Surat Masuk</li>
+            <li class="breadcrumb-item active"><a href="" class="text-primary text-decoration-none">Dashboard</a> / Tambah Data Surat Masuk</li>
+        </ol>
 
         <div class="card mb-4">
             <div class="card-header">
