@@ -5,6 +5,10 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Dashboard
             </a>
+            <a class="nav-link" href="{{route('user.index')}}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                User
+            </a>
             <a class="nav-link" href="{{route('inbox.index')}}">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Inbox
@@ -21,6 +25,6 @@
     </div>
     <div class="sb-sidenav-footer">
         <div class="small">Logged in as:</div>
-        Start Bootstrap
+        {{ Auth::user()->name }}
     </div>
 </nav>

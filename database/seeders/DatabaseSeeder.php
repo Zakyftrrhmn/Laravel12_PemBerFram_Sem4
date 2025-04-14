@@ -6,6 +6,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\InboxSeeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,11 +17,14 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        $this->call(InboxSeeder::class);
-
-        User::factory()->create([
-            'name' => 'Zaky Fathur Rahman',
-            'email' => 'zaky@gmail.com',
+        $this->call([
+            InboxSeeder::class,
+            UserSeeder::class
         ]);
+
+        // User::factory()->create([
+        //     'name' => 'Zaky Fathur Rahman',
+        //     'email' => 'zaky@gmail.com',
+        // ]);
     }
 }

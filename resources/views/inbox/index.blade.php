@@ -54,10 +54,17 @@
                             <td>
                                 <a href="" class="btn btn-sm btn-secondary">show</a>
                                 <a href="{{ route('inbox.edit', $i->id) }}" class="btn btn-sm btn-warning">edit</a>
-                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal{{$i->id}}">
+                                @if($i->relasi>0)
+                                <button type="button" class="btn btn-danger btn-sm" disabled>
                                     Hapus
                                 </button>
+                                @else
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal{{$i->id}}">
+                                    Hapus
+                                </button>
+                                
+                                @endif
                             
                                 <!-- Modal Konfirmasi Hapus -->
                                 <div class="modal fade" id="exampleModal{{ $i->id }}" tabindex="-1" aria-labelledby="modalLabel{{ $i->id }}" aria-hidden="true">
