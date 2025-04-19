@@ -31,7 +31,9 @@
                         <select name="inbox_id" id="inbox_id" class="form-control @error('inbox_id') is-invalid @enderror">
                             <option value="">-- Pilih Surat Masuk --</option>
                             @foreach ($inbox as $i)
+                                @if ($i->relasi < 1)
                                 <option value="{{ $i->id }}">{{ $i->no_surat }}</option>
+                                @endif
                             @endforeach
                         </select>
                         @error('inbox_id')

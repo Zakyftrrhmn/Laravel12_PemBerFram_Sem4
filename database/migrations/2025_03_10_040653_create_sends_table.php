@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('sends', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->index('fk_sends_to_users');
             $table->string('no_agenda');
             $table->string('jenis_surat');
             $table->date('tanggal_kirim');

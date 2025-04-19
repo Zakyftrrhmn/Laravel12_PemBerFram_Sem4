@@ -53,7 +53,11 @@
                             </td>
                             <td>
                                 <a href="" class="btn btn-sm btn-secondary">show</a>
+                                @if (Auth::user()->role == 'petugas')
+                                    
                                 <a href="{{ route('inbox.edit', $i->id) }}" class="btn btn-sm btn-warning">edit</a>
+                                
+                                @endif
                                 @if($i->relasi>0)
                                 <button type="button" class="btn btn-danger btn-sm" disabled>
                                     Hapus

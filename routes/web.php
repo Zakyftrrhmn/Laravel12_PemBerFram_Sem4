@@ -16,6 +16,14 @@ Route::put('/inbox/update/{id}', [InboxController::class, 'update'])->name('inbo
 route::delete('/inbox/delete/{id}', [InboxController::class, 'destroy'])->name('inbox.destroy')->middleware('auth');
 Route::get('/inbox/show/{id}', [InboxController::class, 'show'])->name('inbox.show')->middleware('auth');
 
+Route::get('/user', [UserController::class, 'index'])->name('user.index')->middleware('auth');
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create')->middleware('auth');
+Route::post('/user/store', [UserController::class, 'store'])->name('user.store')->middleware('auth');
+Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit')->middleware('auth');
+Route::put('/user/update/{id}', [UserController::class, 'update'])->name('user.update')->middleware('auth');
+route::delete('/user/delete/{id}', [UserController::class, 'destroy'])->name('user.destroy')->middleware('auth');
+
+
 Route::get('/send', [SendController::class, 'index'])->name('send.index')->middleware('auth');
 Route::get('/send/create', [SendController::class, 'create'])->name('send.create')->middleware('auth');
 Route::post('/send/store', [SendController::class, 'store'])->name('send.store')->middleware('auth');

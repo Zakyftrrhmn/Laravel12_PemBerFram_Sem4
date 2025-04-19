@@ -6,6 +6,7 @@ use App\Models\Disposition;
 use Illuminate\Http\Request;
 use App\Models\Inbox;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class DispositionController extends Controller
 {
@@ -39,9 +40,13 @@ class DispositionController extends Controller
             'keterangan' => 'required',
             'status_surat' => 'required',
             'tanggapan' => 'required',
+            'inbox_id' => 'required',
         ]);
 
-        $disposition = Disposition::create($request->all());
+        // $disposition = Disposition::create($request->all());
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        Disposition::create($data);
 
         Inbox::where('id', $request->inbox_id)->update(['relasi' => 1]);
         return redirect()->route('disposition.index');

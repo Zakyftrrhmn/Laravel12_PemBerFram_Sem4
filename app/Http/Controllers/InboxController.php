@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Inbox;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -59,17 +60,10 @@ class InboxController extends Controller
             $fileName = 'nophoto.jpg';
         }
 
-        // Tambah data ke tabel inboxes
-        DB::table('inboxes')->insert([
-            'no_agenda'     => $request->no_agenda,
-            'jenis_surat'   => $request->jenis_surat,
-            'tanggal_kirim' => $request->tanggal_kirim,
-            'tanggal_terima' => $request->tanggal_terima,
-            'no_surat'   => $request->no_surat,
-            'pengirim'      => $request->pengirim,
-            'perihal'       => $request->perihal,
-            'foto'          => $fileName,
-        ]);
+        // $disposition = Disposition::create($request->all());
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        Inbox::create($data);
 
         return redirect()->route('inbox.index');
     }

@@ -9,19 +9,16 @@ class Inbox extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'no_agenda',
-        'jenis_surat',
-        'tanggal_kirim',
-        'tanggal_terima',
-        'no_surat',
-        'pengirim',
-        'perihal',
-        'foto'
-    ];
+
+    protected $guarded = ['id'];
 
     public function disposition()
     {
         return $this->hasOne("App\Models\Disposition", 'inbox_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo("App\Models\User", 'user_id', 'id');
     }
 }

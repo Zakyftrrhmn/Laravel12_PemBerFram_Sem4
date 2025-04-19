@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('dispositions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('inbox_id')->nullable()->index('fk_disposition_to_inboxes');
+            $table->foreignId('user_id')->nullable()->index('fk_disposition_to_users');
             $table->string('no_disposisi')->nullable();
             $table->string('kepada')->nullable();
             $table->string('keterangan')->nullable();

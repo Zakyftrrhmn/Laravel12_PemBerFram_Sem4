@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Send;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SendController extends Controller
@@ -46,15 +47,10 @@ class SendController extends Controller
         );
 
 
-        // Tambah data ke tabel inboxes
-        DB::table('sends')->insert([
-            'no_agenda'     => $request->no_agenda,
-            'jenis_surat'   => $request->jenis_surat,
-            'tanggal_kirim' => $request->tanggal_kirim,
-            'no_surat'   => $request->no_surat,
-            'pengirim'      => $request->pengirim,
-            'perihal'       => $request->perihal,
-        ]);
+        // $disposition = Disposition::create($request->all());
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        Send::create($data);
 
         return redirect()->route('send.index');
     }

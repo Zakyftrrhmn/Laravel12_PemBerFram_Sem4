@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('inboxes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->nullable()->index('fk_inboxes_to_users');
             $table->string('no_agenda');
             $table->string('jenis_surat');
             $table->date('tanggal_kirim');

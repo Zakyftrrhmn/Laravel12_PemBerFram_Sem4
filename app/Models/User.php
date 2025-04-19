@@ -48,4 +48,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function disposition()
+    {
+        return $this->hasMany("App\Models\Disposition", 'user_id');
+    }
+
+    public function inbox()
+    {
+        return $this->hasMany("App\Models\Inbox", 'user_id');
+    }
+
+    public function send()
+    {
+        return $this->hasMany("App\Models\Send", 'user_id');
+    }
 }

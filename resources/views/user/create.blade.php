@@ -1,10 +1,10 @@
 @extends('layouts.main')
-@section('title', 'Tambah Surat Keluar')
+@section('title', 'Tambah User')
 @section('content')
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Tambah Surat Keluar</h1>
+        <h1 class="mt-4">Tambah User</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active"><a href="" class="text-primary text-decoration-none">Dashboard</a> / Tambah Data Surat Keluar</li>
+            <li class="breadcrumb-item active"><a href="" class="text-primary text-decoration-none">Dashboard</a> / Tambah Data User</li>
         </ol>
 
         <div class="card mb-4">
@@ -13,47 +13,46 @@
                 Tambah Data
             </div>
             <div class="card-body">
-                <form action="{{ route('send.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     
                     <div class="form-group">
-                        <label for="no_agenda">Nomor Agenda:</label>
-                        <input type="text" class="form-control @error('no_agenda') is-invalid @enderror" id="no_agenda" name="no_agenda" value="{{ old('no_agenda') }}">
-                        @error('no_agenda')
+                        <label for="name">Nama Petugas</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
+                        @error('name')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="form-group">
-                        <label for="jenis_surat">Jenis Surat:</label>
-                        <input type="text" class="form-control @error('jenis_surat') is-invalid @enderror" id="jenis_surat" name="jenis_surat" value="{{ old('jenis_surat') }}">
-                        @error('jenis_surat')
+                        <label for="email">Email Petugas</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
+                        @error('email')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="form-group">
-                        <label for="tanggal_kirim">Tanggal Kirim:</label>
-                        <input type="date" class="form-control @error('tanggal_kirim') is-invalid @enderror" id="tanggal_kirim" name="tanggal_kirim" value="{{ old('tanggal_kirim') }}">
-                        @error('tanggal_kirim')
+                        <label for="password">Password </label>
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" value="{{ old('password') }}">
+                        @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
 
                     <div class="form-group">
-                        <label for="no_surat">Nomor Surat:</label>
-                        <textarea class="form-control" id="no_surat" name="no_surat">{{ old('no_surat') }}</textarea>
-                    </div>
+                        <label for="role">Role Petugas</label>
+                        <select name="role" id="role" class="form-control @error('role') is-invalid @enderror">
+                            <option value="admin">Admin</option>
+                            <option value="petugas">Petugas</option>
+                        </select>
 
-                    <div class="form-group">
-                        <label for="pengirim">Pengirim:</label>
-                        <textarea class="form-control" id="pengirim" name="pengirim">{{ old('pengirim') }}</textarea>
-                    </div>
+                        @error('role')
 
-                    <div class="form-group">
-                        <label for="perihal">Perihal:</label>
-                        <textarea class="form-control" id="perihal" name="perihal">{{ old('perihal') }}</textarea>
+                            <div class="invalid-feedback">{{ $message }}</div>
+
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn btn-primary mt-4">Submit</button>

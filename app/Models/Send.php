@@ -9,12 +9,11 @@ class Send extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'no_agenda',
-        'jenis_surat',
-        'tanggal_kirim',
-        'no_surat',
-        'pengirim',
-        'perihal',
-    ];
+
+    protected $guarded = ['id'];
+
+    public function user()
+    {
+        return $this->belongsTo("App\Models\User", 'user_id', 'id');
+    }
 }

@@ -45,10 +45,12 @@
                             <td>
                                 <a href="" class="btn btn-sm btn-secondary">show</a>
                                 <a href="{{ route('disposition.edit', $d->id) }}" class="btn btn-sm btn-warning">edit</a>
+                                @if(Auth::user()->role == 'admin')
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal{{$d->id}}">
                                     Hapus
                                 </button>
+                                @endif
                             
                                 <!-- Modal Konfirmasi Hapus -->
                                 <div class="modal fade" id="exampleModal{{ $d->id }}" tabindex="-1" aria-labelledby="modalLabel{{ $d->id }}" aria-hidden="true">

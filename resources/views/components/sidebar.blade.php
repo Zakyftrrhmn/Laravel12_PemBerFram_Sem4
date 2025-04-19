@@ -5,10 +5,7 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Dashboard
             </a>
-            <a class="nav-link" href="{{route('user.index')}}">
-                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                User
-            </a>
+
             <a class="nav-link" href="{{route('inbox.index')}}">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Inbox
@@ -21,6 +18,15 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Disposition
             </a>
+
+            @if(Auth::user()->role == 'admin')
+
+            <a class="nav-link" href="{{route('user.index')}}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                User
+            </a>
+
+            @endif
         </div>
     </div>
     <div class="sb-sidenav-footer">

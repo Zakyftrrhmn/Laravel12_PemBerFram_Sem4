@@ -20,27 +20,29 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Petugas</th>
+                            <th>Nama</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th width="280px">Action</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>No</th>
-                            <th>Nama Petugas</th>
+                            <th>Nama</th>
                             <th>Email</th>
+                            <th>Role</th>
                             <th width="280px">Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach ($send as $u)
+                        @foreach ($user as $u)
                         <tr>
                             <td>{{  $loop->iteration }}</td>
                             <td>{{  $u->name }}</td>
                             <td>{{  $u->email }}</td>
+                            <td>{{  $u->role }}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-secondary">show</a>
                                 <a href="{{ route('user.edit', $u->id) }}" class="btn btn-sm btn-warning">edit</a>
                                 <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal{{$u->id}}">

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('dispositions', function (Blueprint $table) {
             $table->foreign('inbox_id', 'fk_disposition_to_inboxes')->references('id')->on('inboxes')->onUpdate('CASCADE')->onDelete('CASCADE');
+            $table->foreign('user_id', 'fk_disposition_to_users')->references('id')->on('users')->onUpdate('CASCADE')->onDelete('CASCADE');
         });
     }
 
@@ -23,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('dispositions', function (Blueprint $table) {
             $table->dropForeign('fk_disposition_to_inboxes');
+            $table->dropForeign('fk_disposition_to_users');
         });
     }
 };
